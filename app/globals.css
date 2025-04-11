@@ -1,0 +1,604 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 221.2 83.2% 53.3%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 221.2 83.2% 53.3%;
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 217.2 91.2% 59.8%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 224.3 76.3% 48%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Animation keyframes */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes wave {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes scrollIndicator {
+  0%,
+  100% {
+    transform: translateY(-4px);
+  }
+  50% {
+    transform: translateY(4px);
+  }
+}
+
+/* Animation classes */
+.animate-fade-in-up {
+  animation: fadeInUp 1s ease-out forwards;
+}
+
+.animate-wave {
+  animation: wave 15s linear infinite;
+}
+
+.animate-wave-delayed {
+  animation: wave 15s linear 2s infinite;
+}
+
+.animate-scroll-indicator {
+  animation: scrollIndicator 1.5s ease-in-out infinite;
+}
+
+.animate-in {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
+/* Add styles for the prose content in modals */
+.prose h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.prose p {
+  margin-bottom: 1rem;
+}
+
+.prose ul {
+  list-style-type: disc;
+  padding-left: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.prose li {
+  margin-bottom: 0.5rem;
+}
+
+/* Add more Kazakh ornamental patterns and patriotic elements */
+.kazakh-pattern {
+  background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M50 0C22.4 0 0 22.4 0 50s22.4 50 50 50 50-22.4 50-50S77.6 0 50 0zm0 90c-22.1 0-40-17.9-40-40s17.9-40 40-40 40 17.9 40 40-17.9 40-40 40z' fill='%23FFC107' fill-opacity='0.1'/%3E%3C/svg%3E");
+  background-size: 100px 100px;
+}
+
+.kazakh-border {
+  border-image: linear-gradient(to right, #0052cc, #ffc107) 1;
+}
+
+/* Enhanced modal styles */
+.modal-kazakh {
+  background-image: linear-gradient(to bottom right, rgba(255, 193, 7, 0.05), rgba(0, 82, 204, 0.05));
+}
+
+.prose h3 {
+  color: #0052cc;
+  border-left: 3px solid #ffc107;
+  padding-left: 0.75rem;
+}
+
+.prose ul li::before {
+  content: "•";
+  color: #ffc107;
+  font-weight: bold;
+  display: inline-block;
+  width: 1em;
+  margin-left: -1em;
+}
+
+.prose p span.text-blue-600 {
+  font-weight: 600;
+}
+
+/* Patriotic button styles */
+.btn-kazakh {
+  background: linear-gradient(135deg, #0052cc, #003580);
+  color: white;
+  border: 2px solid #ffc107;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.btn-kazakh:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+  background: linear-gradient(135deg, #003580, #002654);
+}
+
+.btn-kazakh-alt {
+  background: linear-gradient(135deg, #ffc107, #ffab00);
+  color: #003580;
+  border: 2px solid #003580;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.btn-kazakh-alt:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+  background: linear-gradient(135deg, #ffab00, #ff8f00);
+}
+
+/* New Kazakh ornamental patterns */
+.kazakh-ornament-1 {
+  background-image: url("data:image/svg+xml,%3Csvg width='120' height='120' viewBox='0 0 120 120' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M60 0C26.9 0 0 26.9 0 60s26.9 60 60 60 60-26.9 60-60S93.1 0 60 0zm0 108c-26.5 0-48-21.5-48-48s21.5-48 48-48 48 21.5 48 48-21.5 48-48 48z' fill='%23FFC107' fill-opacity='0.15'/%3E%3Cpath d='M60 24c-19.9 0-36 16.1-36 36s16.1 36 36 36 36-16.1 36-36-16.1-36-36-36zm0 64c-15.5 0-28-12.5-28-28s12.5-28 28-28 28 12.5 28 28-12.5 28-28 28z' fill='%230052CC' fill-opacity='0.1'/%3E%3C/svg%3E");
+  background-size: 120px 120px;
+}
+
+.kazakh-ornament-2 {
+  background-image: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M40 0L0 40l40 40 40-40L40 0zm0 68.3L11.7 40 40 11.7 68.3 40 40 68.3z' fill='%23FFC107' fill-opacity='0.1'/%3E%3Cpath d='M40 20L20 40l20 20 20-20-20-20zm0 28.3L31.7 40 40 31.7 48.3 40 40 48.3z' fill='%230052CC' fill-opacity='0.1'/%3E%3C/svg%3E");
+  background-size: 80px 80px;
+}
+
+.kazakh-ornament-3 {
+  background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M50 0L0 50l50 50 50-50L50 0zm0 85.4L14.6 50 50 14.6 85.4 50 50 85.4z' fill='%23FFC107' fill-opacity='0.12'/%3E%3Cpath d='M50 25L25 50l25 25 25-25-25-25zm0 35.4L35.4 50 50 35.4 64.6 50 50 60.4z' fill='%230052CC' fill-opacity='0.08'/%3E%3C/svg%3E");
+  background-size: 100px 100px;
+}
+
+/* National symbol styles */
+.national-symbol {
+  position: relative;
+}
+
+.national-symbol::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='20' cy='20' r='18' fill='%23FFC107' fill-opacity='0.15'/%3E%3Cpath d='M20 5L23 15H33L25 21L28 31L20 25L12 31L15 21L7 15H17L20 5Z' fill='%230052CC' fill-opacity='0.1'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 0.1;
+  z-index: -1;
+}
+
+/* Steppe and mountain background */
+.kazakh-landscape {
+  background-image: linear-gradient(to bottom, rgba(0, 82, 204, 0.8), rgba(0, 38, 84, 0.9)),
+    url("data:image/svg+xml,%3Csvg width='1440' height='200' viewBox='0 0 1440 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 200L60 190C120 180 240 160 360 150C480 140 600 140 720 150C840 160 960 180 1080 180C1200 180 1320 160 1380 150L1440 140V200H1380C1320 200 1200 200 1080 200C960 200 840 200 720 200C600 200 480 200 360 200C240 200 120 200 60 200H0Z' fill='%23FFC107' fill-opacity='0.2'/%3E%3Cpath d='M0 200L48 180C96 160 192 120 288 100C384 80 480 80 576 90C672 100 768 120 864 130C960 140 1056 140 1152 130C1248 120 1344 100 1392 90L1440 80V200H1392C1344 200 1248 200 1152 200C1056 200 960 200 864 200C768 200 672 200 576 200C480 200 384 200 288 200C192 200 96 200 48 200H0Z' fill='%23FFC107' fill-opacity='0.1'/%3E%3C/svg%3E");
+  background-size: cover;
+  background-position: bottom;
+}
+
+/* Enhanced card styles */
+.card-kazakh {
+  border-radius: 0.5rem;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  border-bottom: 4px solid #0052cc;
+  position: relative;
+}
+
+.card-kazakh::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(to right, #0052cc, #ffc107);
+}
+
+.card-kazakh:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Patriotic ribbon */
+.kazakh-ribbon {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100px;
+  height: 100px;
+  overflow: hidden;
+}
+
+.kazakh-ribbon::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 0;
+  height: 0;
+  border-width: 0 100px 100px 0;
+  border-style: solid;
+  border-color: transparent #ffc107 transparent transparent;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+}
+
+.kazakh-ribbon::after {
+  content: "Казахстан";
+  position: absolute;
+  top: 20px;
+  right: -25px;
+  width: 120px;
+  text-align: center;
+  font-size: 12px;
+  font-weight: bold;
+  color: #0052cc;
+  transform: rotate(45deg);
+}
+
+/* Shanyrak symbol (traditional Kazakh yurt crown) */
+.shanyrak-symbol {
+  position: relative;
+}
+
+.shanyrak-symbol::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='30' cy='30' r='25' fill='none' stroke='%23FFC107' stroke-width='2' stroke-opacity='0.2'/%3E%3Ccircle cx='30' cy='30' r='20' fill='none' stroke='%23FFC107' stroke-width='2' stroke-opacity='0.2'/%3E%3Ccircle cx='30' cy='30' r='15' fill='none' stroke='%23FFC107' stroke-width='2' stroke-opacity='0.2'/%3E%3Cpath d='M30 5L30 55M5 30L55 30M12 12L48 48M48 12L12 48' stroke='%23FFC107' stroke-width='1' stroke-opacity='0.2'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 0.15;
+  z-index: -1;
+}
+
+/* Enhanced animations */
+@keyframes pulse-kazakh {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 1;
+  }
+}
+
+.animate-pulse-kazakh {
+  animation: pulse-kazakh 3s ease-in-out infinite;
+}
+
+@keyframes float-kazakh {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.animate-float-kazakh {
+  animation: float-kazakh 6s ease-in-out infinite;
+}
+
+/* National flag colors gradient overlay */
+.flag-gradient-overlay {
+  position: relative;
+}
+
+.flag-gradient-overlay::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(0, 82, 204, 0.1), rgba(255, 193, 7, 0.1));
+  pointer-events: none;
+}
+
+/* Казахские национальные орнаменты */
+
+/* Кошкар муйиз (бараньи рога) - основной элемент казахского орнамента */
+.kazakh-koshkar-muiiz {
+  background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M50 20C42 20 35 27 35 35C35 43 42 50 50 50C58 50 65 43 65 35C65 27 58 20 50 20ZM50 80C42 80 35 73 35 65C35 57 42 50 50 50C58 50 65 57 65 65C65 73 58 80 50 80Z' fill='%23FFC107' fill-opacity='0.15'/%3E%3Cpath d='M20 50C20 42 27 35 35 35C43 35 50 42 50 50C50 58 43 65 35 65C27 65 20 58 20 50ZM80 50C80 42 73 35 65 35C57 35 50 42 50 50C50 58 57 65 65 65C73 65 80 58 80 50Z' fill='%230052CC' fill-opacity='0.1'/%3E%3C/svg%3E");
+  background-size: 100px 100px;
+}
+
+/* Туйе табан (верблюжий след) */
+.kazakh-tuye-taban {
+  background-image: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20 20L40 20L40 40L20 40L20 20ZM40 40L60 40L60 60L40 60L40 40Z' fill='%23FFC107' fill-opacity='0.12'/%3E%3Cpath d='M40 20L60 20L60 40L40 40L40 20ZM20 40L40 40L40 60L20 60L20 40Z' fill='%230052CC' fill-opacity='0.08'/%3E%3C/svg%3E");
+  background-size: 80px 80px;
+}
+
+/* Кызгалдак (тюльпан) */
+.kazakh-kyzgaldak {
+  background-image: url("data:image/svg+xml,%3Csvg width='120' height='120' viewBox='0 0 120 120' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M60 30C50 30 40 40 40 50C40 60 50 70 60 70C70 70 80 60 80 50C80 40 70 30 60 30ZM60 30L60 10M40 50L20 50M60 70L60 90M80 50L100 50' stroke='%23FFC107' stroke-width='2' stroke-opacity='0.15' fill='none'/%3E%3C/svg%3E");
+  background-size: 120px 120px;
+}
+
+/* Су (вода) - волнистый орнамент */
+.kazakh-su {
+  background-image: url("data:image/svg+xml,%3Csvg width='100' height='20' viewBox='0 0 100 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 10 Q 12.5 0, 25 10 T 50 10 T 75 10 T 100 10' stroke='%230052CC' stroke-width='1' stroke-opacity='0.1' fill='none'/%3E%3Cpath d='M0 10 Q 12.5 20, 25 10 T 50 10 T 75 10 T 100 10' stroke='%23FFC107' stroke-width='1' stroke-opacity='0.1' fill='none'/%3E%3C/svg%3E");
+  background-size: 100px 20px;
+}
+
+/* Балдак (посох) - ромбовидный орнамент */
+.kazakh-baldak {
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 10L50 30L30 50L10 30L30 10Z' stroke='%23FFC107' stroke-width='2' stroke-opacity='0.15' fill='none'/%3E%3Cpath d='M30 20L40 30L30 40L20 30L30 20Z' stroke='%230052CC' stroke-width='1' stroke-opacity='0.1' fill='none'/%3E%3C/svg%3E");
+  background-size: 60px 60px;
+}
+
+/* Комбинированный орнамент для рамок */
+.kazakh-border-ornament {
+  border-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0L100 0L100 100L0 100L0 0ZM10 10L10 90L90 90L90 10L10 10Z' fill='%23FFC107' fill-opacity='0.2'/%3E%3Cpath d='M20 20L30 10L40 20L30 30L20 20ZM60 20L70 10L80 20L70 30L60 20ZM20 60L30 50L40 60L30 70L20 60ZM60 60L70 50L80 60L70 70L60 60Z' fill='%230052CC' fill-opacity='0.15'/%3E%3C/svg%3E")
+    10;
+  border-width: 10px;
+  border-style: solid;
+}
+
+/* Орнамент для декоративных линий */
+.kazakh-divider {
+  height: 10px;
+  background-image: url("data:image/svg+xml,%3Csvg width='100' height='10' viewBox='0 0 100 10' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 5L100 5' stroke='%230052CC' stroke-width='1' stroke-opacity='0.3'/%3E%3Cpath d='M10 2L10 8M20 1L20 9M30 2L30 8M40 1L40 9M50 2L50 8M60 1L60 9M70 2L70 8M80 1L80 9M90 2L90 8' stroke='%23FFC107' stroke-width='1' stroke-opacity='0.5'/%3E%3C/svg%3E");
+  background-repeat: repeat-x;
+}
+
+/* Орнаментальный фон для карточек */
+.kazakh-card-pattern {
+  background-color: white;
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 10L50 30L30 50L10 30L30 10Z' stroke='%23FFC107' stroke-width='1' stroke-opacity='0.07' fill='none'/%3E%3Cpath d='M30 20L40 30L30 40L20 30L30 20Z' stroke='%230052CC' stroke-width='1' stroke-opacity='0.05' fill='none'/%3E%3C/svg%3E");
+  background-size: 60px 60px;
+}
+
+/* Орнаментальная рамка для изображений */
+.kazakh-image-frame {
+  position: relative;
+  padding: 10px;
+}
+
+.kazakh-image-frame::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border: 2px solid transparent;
+  border-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0L100 0L100 100L0 100L0 0ZM10 10L10 90L90 90L90 10L10 10Z' fill='none' stroke='%23FFC107' stroke-width='2'/%3E%3Cpath d='M0 0L20 0L25 5L30 0L50 0L55 5L60 0L80 0L85 5L90 0L100 0L100 20L95 25L100 30L100 50L95 55L100 60L100 80L95 85L100 90L100 100L80 100L75 95L70 100L50 100L45 95L40 100L20 100L15 95L10 100L0 100L0 80L5 75L0 70L0 50L5 45L0 40L0 20L5 15L0 10Z' fill='none' stroke='%230052CC' stroke-width='1' stroke-dasharray='2 2'/%3E%3C/svg%3E")
+    10;
+  pointer-events: none;
+}
+
+/* Декоративные углы для карточек */
+.kazakh-corner-ornament {
+  position: relative;
+}
+
+.kazakh-corner-ornament::before,
+.kazakh-corner-ornament::after {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0L20 0L20 5L5 5L5 20L0 20L0 0Z' fill='%23FFC107' fill-opacity='0.2'/%3E%3Cpath d='M5 5L20 5L20 20L15 20L15 10L10 10L10 15L5 15L5 5Z' fill='%230052CC' fill-opacity='0.1'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+}
+
+.kazakh-corner-ornament::before {
+  top: 0;
+  left: 0;
+}
+
+.kazakh-corner-ornament::after {
+  bottom: 0;
+  right: 0;
+  transform: rotate(180deg);
+}
+
+/* Стилизованные кнопки с казахским орнаментом */
+.btn-kazakh-ornament {
+  position: relative;
+  background: linear-gradient(135deg, #0052cc, #003580);
+  color: white;
+  border: 2px solid #ffc107;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+.btn-kazakh-ornament::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 10L50 30L30 50L10 30L30 10Z' stroke='%23FFC107' stroke-width='1' stroke-opacity='0.2' fill='none'/%3E%3C/svg%3E");
+  background-size: 60px 60px;
+  opacity: 0.2;
+  z-index: 0;
+}
+
+.btn-kazakh-ornament:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+  background: linear-gradient(135deg, #003580, #002654);
+}
+
+.btn-kazakh-ornament > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Декоративный заголовок с казахским орнаментом */
+.kazakh-title {
+  position: relative;
+  padding: 0 20px;
+  display: inline-block;
+}
+
+.kazakh-title::before,
+.kazakh-title::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 30px;
+  height: 20px;
+  background-image: url("data:image/svg+xml,%3Csvg width='30' height='20' viewBox='0 0 30 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 10L10 0L20 10L10 20L0 10Z' fill='%23FFC107' fill-opacity='0.3'/%3E%3Cpath d='M10 10L20 0L30 10L20 20L10 10Z' fill='%230052CC' fill-opacity='0.2'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  transform: translateY(-50%);
+}
+
+.kazakh-title::before {
+  left: -15px;
+}
+
+.kazakh-title::after {
+  right: -15px;
+  transform: translateY(-50%) rotate(180deg);
+}
+
+/* Фон с национальным флагом */
+.kazakh-flag-bg {
+  background: linear-gradient(to bottom, #00adef 60%, #ffe400 40%);
+  position: relative;
+}
+
+.kazakh-flag-bg::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='50' cy='50' r='30' fill='%23FFC107' fill-opacity='0.2'/%3E%3Cpath d='M50 20L55 35H70L60 45L65 60L50 50L35 60L40 45L30 35H45L50 20Z' fill='%23FFC107' fill-opacity='0.3'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: left center;
+  background-size: contain;
+  opacity: 0.5;
+}
+
+/* Анимация для казахских орнаментов */
+@keyframes rotate-ornament {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-ornament {
+  animation: rotate-ornament 30s linear infinite;
+}
+
+/* Стилизованный контейнер с казахским орнаментом */
+.kazakh-container {
+  position: relative;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.kazakh-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0L100 0L100 100L0 100L0 0ZM10 10L10 90L90 90L90 10L10 10Z' fill='none' stroke='%23FFC107' stroke-width='2' stroke-opacity='0.1'/%3E%3Cpath d='M20 20L30 10L40 20L30 30L20 20ZM60 20L70 10L80 20L70 30L60 20ZM20 60L30 50L40 60L30 70L20 60ZM60 60L70 50L80 60L70 70L60 60Z' fill='none' stroke='%230052CC' stroke-width='1' stroke-opacity='0.1'/%3E%3C/svg%3E");
+  background-size: 100px 100px;
+  opacity: 0.1;
+  z-index: -1;
+}
+
+/* Стилизованный список с казахскими элементами */
+.kazakh-list {
+  list-style: none;
+  padding-left: 1.5rem;
+}
+
+.kazakh-list li {
+  position: relative;
+  padding-left: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.kazakh-list li::before {
+  content: "";
+  position: absolute;
+  left: -1.5rem;
+  top: 0.5rem;
+  width: 12px;
+  height: 12px;
+  background-image: url("data:image/svg+xml,%3Csvg width='12' height='12' viewBox='0 0 12 12' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M6 0L12 6L6 12L0 6L6 0Z' fill='%23FFC107'/%3E%3Cpath d='M6 3L9 6L6 9L3 6L6 3Z' fill='%230052CC'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+}
+
